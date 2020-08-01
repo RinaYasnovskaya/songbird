@@ -1,0 +1,16 @@
+body{
+  background-color: $color-main-back;
+  color: $color-main-text;
+  font-family: 'Montserrat';
+}
+
+#root{
+  width: 100%;
+  margin: auto;
+}
+
+@media (min-width: 1200px){
+  #root{
+    max-width: 1140px;
+  }
+}
