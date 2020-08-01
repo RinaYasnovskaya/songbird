@@ -22,6 +22,7 @@ module.exports = {
   },
   entry: {
     app: PATHS.src,
+    style: './src/assets/scss/main.scss',
     // module: `${PATHS.src}/your-module.js`,
   },
   output: {
@@ -72,7 +73,7 @@ module.exports = {
         {
           loader: 'css-loader',
           options: { sourceMap: true }
-        }, 
+        },
         {
           loader: 'resolve-url-loader',
           options: { sourceMap: true }
@@ -100,7 +101,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
 },
- 
+
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
@@ -109,10 +110,10 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
       { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
-     
+
     ]),
 
-  
+
     ...PAGES.map(page => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${page}`,
       filename: `./${page}`
