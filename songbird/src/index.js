@@ -2,12 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { nameGroup } from './js';
-import { Header } from './components/header/Header';
+import { Header, Main, Footer } from './components';
 
 const App = () => {
   return (
     <div>
       <Header names={nameGroup} />
+      <Main />
+      <Footer />
     </div>
   );
 };

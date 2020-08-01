@@ -5,6 +5,13 @@
 // header
 @import '../../components/header/header';
 
+// main
+@import '../../components/main/gameBlock/gameBlock';
+@import '../../components/main/twoBlocks/twoBlocks';
+
+// footer
+@import '../../components/footer/footer';
+
 @font-face {
 	font-family: 'Montserrat';
 	font-style: normal;
