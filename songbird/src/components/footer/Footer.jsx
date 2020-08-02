@@ -2,6 +2,8 @@ import React from 'react';
 
 export const Footer = () => {
   return (
-    <button className="button">Следующий уровень</button>
+    <button type="button" className="button">
+      Следующий уровень
+    </button>
   );
 };

@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { nameGroup } from './js';
+import { nameGroup, dataBirds } from './js';
 import { Header, Main, Footer } from './components';
 
-const App = () => {
+const App = ({ i }) => {
   return (
     <div>
       <Header names={nameGroup} />
-      <Main />
+      <Main data={dataBirds[i]} />
       <Footer />
     </div>
   );
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App i={0} />, document.getElementById('root'));

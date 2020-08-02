@@ -66,6 +66,14 @@ module.exports = {
         name: 'assets/img/[name].[ext]'
       }
     }, {
+      test: /\.(png|svg|jpe?g|gif)$/,
+      use: {
+        loader: 'file-loader',
+        options: {
+          name: 'assets/img/[name].[ext]',
+        },
+      },
+    }, {
       test: /\.scss$/,
       use: [
         'style-loader',

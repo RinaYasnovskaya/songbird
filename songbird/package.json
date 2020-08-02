@@ -15,6 +15,7 @@
   ],
   "author": "RinaYasnovskaya",
   "license": "ISC",
+  "homepage": ".",
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
