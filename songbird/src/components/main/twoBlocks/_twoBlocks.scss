@@ -59,9 +59,9 @@
 .info{
   display: flex;
   padding: 0;
-  text-align: justify;
+  text-align: center;
   line-height: 1.5;
-
+  width: 100%;
   &__img{
     width: 20rem;
     height: 15rem;
@@ -72,5 +72,48 @@
   }
   &__name{
     font-size: 2rem;
+  }
+  &__species{
+    display: block;
+  }
+  &__name, &__species, &__description{
+    text-align: justify;
+  }
+}
+
+@media (max-width: 980px) {
+  .info{
+    display: block;
+    &__img{
+      margin-right: 0;
+    }
+  }
+}
+
+@media (max-width: 780px) {
+  .game-section{
+    display: block;
+    &__row{
+      max-width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+@media (max-width: 590px) {
+  .info{
+    display: flex;
+    &__img{
+      margin-right: 2rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .info{
+    display: block;
+    &__img{
+      margin-right: 0;
+    }
   }
 }

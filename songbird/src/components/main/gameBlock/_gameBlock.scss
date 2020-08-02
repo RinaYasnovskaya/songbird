@@ -27,3 +27,13 @@
 
   }
 }
+
+@media (max-width: 480px) {
+  .main{
+    display: block;
+    text-align: center;
+    &__inner{
+      margin-left: 0;
+    }
+  }
+}

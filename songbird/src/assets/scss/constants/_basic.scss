@@ -14,3 +14,36 @@ body{
     max-width: 1140px;
   }
 }
+
+@media (max-width: 1190px) {
+  #root{
+    max-width: 950px;
+  }
+}
+
+@media (max-width: 980px) {
+  html{
+    font-size: 59%;
+  }
+  #root{
+    max-width: 740px;
+  }
+}
+
+@media (max-width: 780px) {
+  html{
+    font-size: 57%;
+  }
+  #root{
+    max-width: 540px;
+  }
+}
+
+@media (max-width: 480px) {
+  html{
+    font-size: 47%;
+  }
+  #root{
+    max-width: 320px;
+  }
+}
