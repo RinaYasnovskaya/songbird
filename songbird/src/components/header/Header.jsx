@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Header = ({ names }) => {
   const newGroup = names.map((item, index) => {
-    const key = index;
+    const key = `${index}key`;
     return (
       <li id={index} key={key} className="header__menu-item">
         <a className="link" href="/#">

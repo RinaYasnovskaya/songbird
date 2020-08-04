@@ -4,7 +4,7 @@ export const GameBlock = ({ dataBird }) => {
   console.log(dataBird);
   return (
     <div className="main">
-      <img src="assets/img/default.jpg" alt="random-bird" className="main__img" />
+      <img src="assets/img/defaultImg.jpg" alt="random-bird" className="main__img" />
       <div className="main__inner">
         <span className="main__inner-title">*****</span>
         <div className="player">

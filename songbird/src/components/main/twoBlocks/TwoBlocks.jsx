@@ -1,10 +1,11 @@
 import React from 'react';
+import { doActive } from './doActive';
 
 export const TwoBlocks = ({ dataBird }) => {
   const birdsNames = dataBird.map((item, index) => {
-    const key = index;
+    const key = `${index}key`;
     return (
-      <li key={key} className="answers__item">
+      <li key={key} className="answers__item" onMouseUp={doActive} role="presentation">
         <span className="indicator" />
         {item.name}
       </li>
@@ -22,7 +23,7 @@ export const TwoBlocks = ({ dataBird }) => {
             <p>Пожалуйста, прослушайте плеер и выберите название птицы, чей голос прозвучал!</p>
           </div>
           <div className="info">
-            <img src="./assets/img/default.jpg" alt="bird" className="info__img" />
+            <img src="assets/img/defaultImg.jpg" alt="bird" className="info__img" />
             <div>
               <h3 className="info__name">Bird Name</h3>
               <span className="info__species">Species</span>
