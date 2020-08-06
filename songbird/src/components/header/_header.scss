@@ -31,10 +31,6 @@
   }
 }
 
-.active{
-  color: $color-active-correct;
-}
-
 .link{
   color: $color-main-text;
   display: block;
@@ -42,6 +38,9 @@
   padding: .8rem 0.9rem;
   background-color: $color-menu-item;
   border: 0 solid transparent;
+  & .active{
+    background-color: $color-active-correct;
+  }
 }
 
 .logo{

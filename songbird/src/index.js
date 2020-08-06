@@ -7,7 +7,7 @@ import { Header, Main, Footer } from './components';
 const App = ({ i }) => {
   return (
     <div>
-      <Header names={nameGroup} />
+      <Header names={nameGroup} num={i} />
       <Main data={dataBirds[i]} />
       <Footer />
     </div>

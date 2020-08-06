@@ -50,8 +50,16 @@
   border-radius: 50%;
   background-color: $color-hover-default;
 }
+
+.active{
+  & span{
+    background-color: $color-active-correct;
+  }
+}
 .inactive{
-  background-color: $color-incorrect;
+  & span {
+    background-color: $color-incorrect;
+  }
 }
 
 .attention{
