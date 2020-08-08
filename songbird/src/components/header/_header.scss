@@ -38,9 +38,10 @@
   padding: .8rem 0.9rem;
   background-color: $color-menu-item;
   border: 0 solid transparent;
-  & .active{
-    background-color: $color-active-correct;
-  }
+}
+
+.active-header{
+  background-color: $color-active-correct;
 }
 
 .logo{

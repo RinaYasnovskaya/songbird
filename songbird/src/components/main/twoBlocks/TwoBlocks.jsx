@@ -1,39 +1,33 @@
 import React, { Component } from 'react';
+import { BirdsNameItem } from './BirdsNameItem';
 
 export class TwoBlocks extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      right: false,
-      wrong: false,
-      count: 0,
-    };
+  constructor() {
+    super();
+    this.state = {};
   }
 
-  doActive = () => {
-    console.log(this.state);
-    this.setState({
-      wrong: true,
-    });
-  };
-
   render() {
-    const { dataBird } = this.props;
-    const { right, wrong } = this.state;
-
-    const styleRight = right ? 'answers__item active' : 'answers__item';
-    const styleWrong = wrong ? 'answers__item inactive' : 'answers__item';
-    const style = right ? styleRight : styleWrong;
+    const { dataBird, selectBirdFunc, selectedBirdId } = this.props;
 
     const birdsNames = dataBird.map((item, index) => {
       const key = `${index}key`;
       return (
-        <li key={key} className={style} onMouseUp={this.doActive} role="presentation">
-          <span className="indicator" />
-          {item.name}
+        <li key={key} className="answers__item">
+          <BirdsNameItem birdName={item.name} selectFunc={selectBirdFunc} id={index} />
         </li>
       );
     });
+
+    const styleNone = {
+      display: 'none',
+    };
+    const styleBlock = {
+      display: 'block',
+    };
+    const styleFlex = {
+      display: 'flex',
+    };
 
     return (
       <div className="game-section">
@@ -42,21 +36,38 @@ export class TwoBlocks extends Component {
         </div>
         <div className="game-section__row">
           <div className="game-section__inner">
-            <div className="attention">
+            <div className="attention" style={selectedBirdId === null ? styleBlock : styleNone}>
               <p>Пожалуйста, прослушайте плеер и выберите название птицы, чей голос прозвучал!</p>
             </div>
-            <div className="info">
-              <img src="assets/img/defaultImg.jpg" alt="bird" className="info__img" />
+            <div className="info" style={selectedBirdId === null ? styleNone : styleFlex}>
+              <img
+                src={selectedBirdId === null ? '' : dataBird[selectedBirdId].image}
+                alt="bird"
+                className="info__img"
+              />
               <div>
-                <h3 className="info__name">Bird Name</h3>
-                <span className="info__species">Species</span>
+                <h3 className="info__name">
+                  {selectedBirdId === null ? '***' : dataBird[selectedBirdId].name}
+                </h3>
+                <span className="info__species">
+                  {selectedBirdId === null ? '***' : dataBird[selectedBirdId].species}
+                </span>
                 <div className="player">
-                  <audio className="player-audio info__audio" src="" hidden />
+                  <audio
+                    className="player-audio info__audio"
+                    src={selectedBirdId === null ? '***' : dataBird[selectedBirdId].audio}
+                    hidden
+                  />
                   <div className="player__control">audio</div>
                 </div>
               </div>
             </div>
-            <span className="info__description">Lorem ipsum dolor sit amet consectetur</span>
+            <span
+              className="info__description"
+              style={selectedBirdId === null ? styleNone : styleBlock}
+            >
+              {selectedBirdId === null ? '***' : dataBird[selectedBirdId].description}
+            </span>
           </div>
         </div>
       </div>
