@@ -11,6 +11,7 @@ class App extends Component {
       id: 0,
       selectedItem: null,
       done: false,
+      birdIndex: null,
     };
   }
 
@@ -20,8 +21,15 @@ class App extends Component {
     });
   };
 
+  birdSetFirst = (birdId) => {
+    this.setState({
+      birdIndex: birdId,
+    });
+    console.log(birdId);
+  };
+
   render() {
-    const { id, selectedItem, done } = this.state;
+    const { id, selectedItem, done, birdIndex } = this.state;
     return (
       <div>
         <Header names={nameGroup} num={id} />
@@ -30,6 +38,8 @@ class App extends Component {
           onBirdSelected={this.birdSelected}
           selectedBird={selectedItem}
           doneGame={done}
+          birdSetIndex={this.birdSetFirst}
+          birdIndexNow={birdIndex}
         />
         <Footer />
       </div>
