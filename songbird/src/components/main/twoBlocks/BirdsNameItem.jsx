@@ -5,25 +5,44 @@ export class BirdsNameItem extends Component {
     super();
     this.state = {
       right: false,
+      wrong: false,
     };
   }
 
-  changeColor = () => {
-    this.setState({
-      right: true,
-    });
+  changeColor = (id, birdId) => {
+    const { doneRound } = this.props;
+    if (id === birdId) {
+      this.setState({
+        right: true,
+      });
+      doneRound(true);
+    } else {
+      this.setState({
+        wrong: true,
+      });
+    }
   };
 
   render() {
-    const { right } = this.state;
-    const style = right ? 'answers__item-span active' : 'answers__item-span';
-    const { birdName, selectFunc, id } = this.props;
+    const { right, wrong } = this.state;
+    let style = '';
+
+    if (right === true) {
+      style = 'answers__item-span active';
+    } else if (wrong === true) {
+      style = 'answers__item-span inactive';
+    } else {
+      style = 'answers__item-span';
+    }
+
+    const { birdName, selectFunc, id, birdNowId } = this.props;
+
     return (
       <span
         className={style}
         onClick={() => {
           selectFunc(id);
-          this.changeColor();
+          this.changeColor(id, birdNowId);
         }}
         role="presentation"
       >

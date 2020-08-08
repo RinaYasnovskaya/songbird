@@ -10,7 +10,7 @@ class App extends Component {
     this.state = {
       id: 0,
       selectedItem: null,
-      done: false,
+      doneRound: false,
       birdIndex: null,
     };
   }
@@ -25,11 +25,26 @@ class App extends Component {
     this.setState({
       birdIndex: birdId,
     });
-    console.log(birdId);
+  };
+
+  doDoneRound = (done) => {
+    this.setState({
+      doneRound: done,
+    });
+  };
+
+  changeId = () => {
+    let { id } = this.state;
+    this.setState({
+      id: (id += 1),
+      selectedItem: null,
+      doneRound: false,
+      birdIndex: null,
+    });
   };
 
   render() {
-    const { id, selectedItem, done, birdIndex } = this.state;
+    const { id, selectedItem, doneRound, birdIndex } = this.state;
     return (
       <div>
         <Header names={nameGroup} num={id} />
@@ -37,11 +52,12 @@ class App extends Component {
           data={dataBirds[id]}
           onBirdSelected={this.birdSelected}
           selectedBird={selectedItem}
-          doneGame={done}
+          doneGameRound={doneRound}
           birdSetIndex={this.birdSetFirst}
           birdIndexNow={birdIndex}
+          doneRound={this.doDoneRound}
         />
-        <Footer />
+        <Footer doneRound={doneRound} changeRound={this.changeId} />
       </div>
     );
   }

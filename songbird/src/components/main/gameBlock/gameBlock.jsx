@@ -3,10 +3,10 @@ import React from 'react';
 export const GameBlock = (props) => {
   const {
     dataBird: { name, image, audio },
-    doneGame,
+    done,
   } = props;
-  const nameBird = doneGame ? name : '*****';
-  const imgBird = doneGame ? image : 'assets/img/defaultImg.jpg';
+  const nameBird = done ? name : '*****';
+  const imgBird = done ? image : 'assets/img/defaultImg.jpg';
   return (
     <div className="main">
       <img src={imgBird} alt="random-bird" className="main__img" />

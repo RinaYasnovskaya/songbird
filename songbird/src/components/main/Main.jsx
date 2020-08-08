@@ -21,16 +21,24 @@ export class Main extends Component {
   };
 
   render() {
-    const { data, onBirdSelected, selectedBird, doneGame, birdIndexNow } = this.props;
+    const {
+      data,
+      onBirdSelected,
+      selectedBird,
+      doneGameRound,
+      birdIndexNow,
+      doneRound,
+    } = this.props;
     const { bird } = this.state;
     return (
       <div>
-        <GameBlock dataBird={bird} done={doneGame} />
+        <GameBlock dataBird={bird} done={doneGameRound} />
         <TwoBlocks
           dataBird={data}
           selectBirdFunc={onBirdSelected}
           selectedBirdId={selectedBird}
           birdIndex={birdIndexNow}
+          doDoneRound={doneRound}
         />
       </div>
     );
