@@ -1,5 +1,7 @@
 import React from 'react';
 
+/* eslint-disable react/jsx-one-expression-per-line */
+
 export const Congratulation = ({ score, doneGameFunc, resetScore }) => {
   const maxScore = 30;
   const buttonOrImg =
@@ -21,11 +23,7 @@ export const Congratulation = ({ score, doneGameFunc, resetScore }) => {
     <div className="congratulation">
       <h2 className="congratulation__title">Поздравляю!</h2>
       <p className="congratulation__descr">
-        Вы набрали
-        {score}
-        из
-        {maxScore}
-        баллов!
+        Вы набрали {score} из {maxScore} баллов!
       </p>
       {buttonOrImg}
     </div>
