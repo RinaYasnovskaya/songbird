@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 import { nameGroup, dataBirds } from './js';
-import { Header, Main, Footer } from './components';
+import { Header, Main, Footer, Congratulation } from './components';
 
 class App extends Component {
   constructor() {
@@ -11,7 +11,7 @@ class App extends Component {
       id: 0,
       selectedItem: null,
       doneRound: false,
-      doneGame: false,
+      doneGame: true,
       countRound: 0,
       birdIndex: 0,
       countAnsw: 0,
@@ -48,9 +48,15 @@ class App extends Component {
     });
   };
 
-  doDoneGame = () => {
+  doDoneGame = (done) => {
     this.setState({
-      doneGame: true,
+      doneGame: done,
+    });
+  };
+
+  resetScore = () => {
+    this.setState({
+      score: 0,
     });
   };
 
@@ -79,7 +85,7 @@ class App extends Component {
           this.doDoneRound();
         } else {
           this.doDoneRound();
-          this.doDoneGame();
+          this.doDoneGame(true);
         }
         this.setState((state) => ({
           score: state.score + 5 - countAnsw,
@@ -101,9 +107,23 @@ class App extends Component {
 
   render() {
     const { id, selectedItem, doneRound, birdIndex, score, doneGame } = this.state;
-    console.log(doneGame, birdIndex);
+
+    // start block for students
+    const forPeople = birdIndex + 1;
+    console.log('выбери птичку под номером: ', forPeople);
+    // end block for students
+
     if (doneGame) {
-      return <Header names={nameGroup} num={id} score={score} />;
+      return (
+        <div>
+          <Header names={nameGroup} num={id} score={score} />
+          <Congratulation
+            score={score}
+            doneGameFunc={this.doDoneGame}
+            resetScore={this.resetScore}
+          />
+        </div>
+      );
     }
     return (
       <div>
