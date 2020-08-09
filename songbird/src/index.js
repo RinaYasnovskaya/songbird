@@ -68,7 +68,7 @@ class App extends Component {
   };
 
   changeColor = (id, event) => {
-    const { doneRound, birdIndex, countRound } = this.state;
+    const { doneRound, birdIndex, countRound, countAnsw } = this.state;
     const allRounds = 5;
     const classes = event.target.classList;
 
@@ -81,6 +81,9 @@ class App extends Component {
           this.doDoneRound();
           this.doDoneGame();
         }
+        this.setState((state) => ({
+          score: state.score + 5 - countAnsw,
+        }));
       } else {
         event.target.classList.add('inactive');
       }
