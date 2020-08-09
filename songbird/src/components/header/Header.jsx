@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Header = ({ names, num }) => {
+export const Header = ({ names, num, score }) => {
   const state = {
     doneGame: false,
   };
@@ -29,7 +29,10 @@ export const Header = ({ names, num }) => {
       <div className="header__info">
         <div className="logo" />
         <div className="score-block">
-          <h4>Score:</h4>
+          <h4>
+            Score:
+            {score}
+          </h4>
           <span className="score" />
         </div>
       </div>

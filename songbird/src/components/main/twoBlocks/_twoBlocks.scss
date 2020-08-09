@@ -58,13 +58,11 @@
   & span{
     background-color: $color-active-correct;
   }
-  pointer-events: none;
 }
 .inactive{
   & span {
     background-color: $color-incorrect;
   }
-  pointer-events: none;
 }
 
 .attention{

@@ -12,6 +12,8 @@ class App extends Component {
       selectedItem: null,
       doneRound: false,
       birdIndex: null,
+      countAnsw: 0,
+      score: 0,
     };
   }
 
@@ -40,14 +42,22 @@ class App extends Component {
       selectedItem: null,
       doneRound: false,
       birdIndex: null,
+      countAnsw: 0,
+    });
+  };
+
+  countAnswers = (count) => {
+    let { countAnsw } = this.state;
+    this.setState({
+      countAnsw: (countAnsw += count),
     });
   };
 
   render() {
-    const { id, selectedItem, doneRound, birdIndex } = this.state;
+    const { id, selectedItem, doneRound, birdIndex, countAnsw, score } = this.state;
     return (
       <div>
-        <Header names={nameGroup} num={id} />
+        <Header names={nameGroup} num={id} score={score} />
         <Main
           data={dataBirds[id]}
           onBirdSelected={this.birdSelected}
@@ -56,6 +66,8 @@ class App extends Component {
           birdSetIndex={this.birdSetFirst}
           birdIndexNow={birdIndex}
           doneRound={this.doDoneRound}
+          count={countAnsw}
+          countFunc={this.countAnswers}
         />
         <Footer doneRound={doneRound} changeRound={this.changeId} />
       </div>

@@ -28,6 +28,8 @@ export class Main extends Component {
       doneGameRound,
       birdIndexNow,
       doneRound,
+      count,
+      countFunc,
     } = this.props;
     const { bird } = this.state;
     return (
@@ -39,6 +41,9 @@ export class Main extends Component {
           selectedBirdId={selectedBird}
           birdIndex={birdIndexNow}
           doDoneRound={doneRound}
+          done={doneGameRound}
+          count={count}
+          countFunc={countFunc}
         />
       </div>
     );

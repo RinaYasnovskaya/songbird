@@ -10,21 +10,25 @@ export class BirdsNameItem extends Component {
   }
 
   changeColor = (id, birdId) => {
-    const { doneRound } = this.props;
-    if (id === birdId) {
-      this.setState({
-        right: true,
-      });
-      doneRound(true);
-    } else {
-      this.setState({
-        wrong: true,
-      });
+    const { doneRound, done, countFunc } = this.props;
+    if (!done) {
+      if (id === birdId) {
+        this.setState({
+          right: true,
+        });
+        doneRound(true);
+      } else {
+        this.setState({
+          wrong: true,
+        });
+      }
+      countFunc(1);
     }
   };
 
   render() {
     const { right, wrong } = this.state;
+    const { birdName, selectFunc, id, birdNowId } = this.props;
     let style = '';
 
     if (right === true) {
@@ -34,8 +38,6 @@ export class BirdsNameItem extends Component {
     } else {
       style = 'answers__item-span';
     }
-
-    const { birdName, selectFunc, id, birdNowId } = this.props;
 
     return (
       <span
