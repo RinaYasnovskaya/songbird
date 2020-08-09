@@ -11,11 +11,19 @@ class App extends Component {
       id: 0,
       selectedItem: null,
       doneRound: false,
-      birdIndex: null,
+      birdIndex: 0,
       countAnsw: 0,
       score: 0,
     };
   }
+
+  componentDidMount() {
+    this.birdSetFirst();
+  }
+
+  birdRandomId = () => {
+    return Math.floor(Math.random() * 6);
+  };
 
   birdSelected = (itemNum) => {
     this.setState({
@@ -23,9 +31,10 @@ class App extends Component {
     });
   };
 
-  birdSetFirst = (birdId) => {
+  birdSetFirst = () => {
+    console.log('set');
     this.setState({
-      birdIndex: birdId,
+      birdIndex: this.birdRandomId(),
     });
   };
 
@@ -60,11 +69,10 @@ class App extends Component {
         <Header names={nameGroup} num={id} score={score} />
         <Main
           data={dataBirds[id]}
+          birdIndexNow={birdIndex}
           onBirdSelected={this.birdSelected}
           selectedBird={selectedItem}
           doneGameRound={doneRound}
-          birdSetIndex={this.birdSetFirst}
-          birdIndexNow={birdIndex}
           doneRound={this.doDoneRound}
           count={countAnsw}
           countFunc={this.countAnswers}

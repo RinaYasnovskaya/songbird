@@ -1,51 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import { GameBlock } from './gameBlock/gameBlock';
 import { TwoBlocks } from './twoBlocks/TwoBlocks';
 
-export class Main extends Component {
-  constructor() {
-    super();
-    this.state = {
-      bird: 0,
-    };
-  }
-
-  componentDidMount = () => {
-    const item = Math.floor(Math.random() * 6);
-    const { data, birdSetIndex } = this.props;
-    this.setState({
-      bird: data[item],
-    });
-    birdSetIndex(item);
-  };
-
-  render() {
-    const {
-      data,
-      onBirdSelected,
-      selectedBird,
-      doneGameRound,
-      birdIndexNow,
-      doneRound,
-      count,
-      countFunc,
-    } = this.props;
-    const { bird } = this.state;
-    return (
-      <div>
-        <GameBlock dataBird={bird} done={doneGameRound} />
-        <TwoBlocks
-          dataBird={data}
-          selectBirdFunc={onBirdSelected}
-          selectedBirdId={selectedBird}
-          birdIndex={birdIndexNow}
-          doDoneRound={doneRound}
-          done={doneGameRound}
-          count={count}
-          countFunc={countFunc}
-        />
-      </div>
-    );
-  }
-}
+export const Main = ({
+  data,
+  onBirdSelected,
+  selectedBird,
+  doneGameRound,
+  birdIndexNow,
+  doneRound,
+  count,
+  countFunc,
+}) => {
+  return (
+    <div>
+      <GameBlock dataBird={data[birdIndexNow]} done={doneGameRound} />
+      <TwoBlocks
+        dataBird={data}
+        selectBirdFunc={onBirdSelected}
+        selectedBirdId={selectedBird}
+        birdIndex={birdIndexNow}
+        doDoneRound={doneRound}
+        done={doneGameRound}
+        count={count}
+        countFunc={countFunc}
+      />
+    </div>
+  );
+};
