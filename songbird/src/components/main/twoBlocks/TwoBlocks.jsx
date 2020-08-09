@@ -1,16 +1,7 @@
 import React from 'react';
 import { BirdsNameItem } from './BirdsNameItem';
 
-export const TwoBlocks = ({
-  dataBird,
-  selectBirdFunc,
-  selectedBirdId,
-  birdIndex,
-  doDoneRound,
-  done,
-  count,
-  countFunc,
-}) => {
+export const TwoBlocks = ({ dataBird, selectBirdFunc, selectedBirdId, thisGroup }) => {
   const birdsNames = dataBird.map((item, index) => {
     const key = `${index}key`;
     return (
@@ -19,11 +10,7 @@ export const TwoBlocks = ({
           birdName={item.name}
           selectFunc={selectBirdFunc}
           id={index}
-          birdNowId={birdIndex}
-          doneRound={doDoneRound}
-          done={done}
-          count={count}
-          countFunc={countFunc}
+          thisGroup={thisGroup}
         />
       </li>
     );

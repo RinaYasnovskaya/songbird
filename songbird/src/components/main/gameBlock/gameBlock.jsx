@@ -1,7 +1,6 @@
 import React from 'react';
 
 export const GameBlock = (props) => {
-  console.log(props);
   const {
     dataBird: { name, image, audio },
     done,

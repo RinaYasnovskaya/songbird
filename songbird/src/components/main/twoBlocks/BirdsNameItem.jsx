@@ -3,51 +3,15 @@ import React, { Component } from 'react';
 export class BirdsNameItem extends Component {
   constructor() {
     super();
-    this.state = {
-      right: false,
-      wrong: false,
-    };
+    this.state = {};
   }
 
-  changeColor = (id, birdId) => {
-    const { doneRound, done, countFunc } = this.props;
-    if (!done) {
-      if (id === birdId) {
-        this.setState({
-          right: true,
-        });
-        doneRound(true);
-      } else {
-        this.setState({
-          wrong: true,
-        });
-      }
-      countFunc(1);
-    }
-  };
-
   render() {
-    const { right, wrong } = this.state;
-    const { birdName, selectFunc, id, birdNowId } = this.props;
-    let style = '';
-
-    if (right === true) {
-      style = 'answers__item-span active';
-    } else if (wrong === true) {
-      style = 'answers__item-span inactive';
-    } else {
-      style = 'answers__item-span';
-    }
+    const { birdName, selectFunc, id, thisGroup } = this.props;
+    const className = thisGroup % 2 === 0 ? 'answers__item-span' : 'answers__item-span _m';
 
     return (
-      <span
-        className={style}
-        onClick={() => {
-          selectFunc(id);
-          this.changeColor(id, birdNowId);
-        }}
-        role="presentation"
-      >
+      <span className={className} onClick={(event) => selectFunc(id, event)} role="presentation">
         <span className="indicator" />
         {birdName}
       </span>

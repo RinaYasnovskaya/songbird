@@ -9,9 +9,7 @@ export const Main = ({
   selectedBird,
   doneGameRound,
   birdIndexNow,
-  doneRound,
-  count,
-  countFunc,
+  thisGroup,
 }) => {
   return (
     <div>
@@ -20,11 +18,7 @@ export const Main = ({
         dataBird={data}
         selectBirdFunc={onBirdSelected}
         selectedBirdId={selectedBird}
-        birdIndex={birdIndexNow}
-        doDoneRound={doneRound}
-        done={doneGameRound}
-        count={count}
-        countFunc={countFunc}
+        thisGroup={thisGroup}
       />
     </div>
   );
