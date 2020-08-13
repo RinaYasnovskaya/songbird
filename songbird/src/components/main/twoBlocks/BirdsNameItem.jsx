@@ -11,7 +11,13 @@ export class BirdsNameItem extends Component {
     const className = thisGroup % 2 === 0 ? 'answers__item-span' : 'answers__item-span _m';
 
     return (
-      <span className={className} onClick={(event) => selectFunc(id, event)} role="presentation">
+      <span
+        className={className}
+        onClick={(event) => {
+          selectFunc(id, event);
+        }}
+        role="presentation"
+      >
         <span className="indicator" />
         {birdName}
       </span>

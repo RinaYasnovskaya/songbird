@@ -11,7 +11,7 @@ class App extends Component {
       id: 0,
       selectedItem: null,
       doneRound: false,
-      doneGame: false,
+      doneGame: true,
       countRound: 0,
       birdIndex: 0,
       countAnsw: 0,

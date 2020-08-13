@@ -6,8 +6,21 @@
   }
   &__descr{
     font-size: 2rem;
+    margin-bottom: 1rem;
   }
   img{
+    width: 55rem;
+  }
+}
 
+@media (max-width: 570px) {
+  .congratulation img {
+    width: 45rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .congratulation img {
+    width: 35rem;
   }
 }
