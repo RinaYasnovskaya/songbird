@@ -2,6 +2,9 @@
 @import './constants/colors';
 @import './constants/basic';
 
+// audio
+@import 'react-h5-audio-player/src/styles.scss';
+
 // header
 @import '../../components/header/header';
 
@@ -14,9 +17,6 @@
 
 // congratulation
 @import '../../components/congratulation/congratulation';
-
-// audio
-@import 'react-h5-audio-player/src/styles.scss';
 
 @font-face {
 	font-family: 'Montserrat';

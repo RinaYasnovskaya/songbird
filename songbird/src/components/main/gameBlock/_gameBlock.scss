@@ -12,6 +12,7 @@
     border-radius: 1rem;
   }
   &__inner{
+    width: 100%;
     display: flex;
     margin-left: 5rem;
     flex-direction: column;
@@ -21,30 +22,26 @@
   }
 }
 
-.player{
-  width: 45rem;
-}
-
 .rhap{
   &_time {
-    color: $color-main-text !important;
-    font-size: 1.5rem !important;
+    color: $color-main-text;
+    font-size: 1.5rem;
   }
   &_container{
-    background-color: $color-addit-back !important;
-    box-shadow: 0 0 0 0 !important;
+    background-color: $color-addit-back;
+    box-shadow: 0 0 0 0;
     &:focus{
       outline: none;
     }
   }
   &_controls-section{
-    margin-top: 0 !important;
+    margin-top: 0;
   }
   &_progress-container:focus, &_play-pause-button:focus, &_volume-button:focus {
     outline: none;
   }
   &_additional-controls, &_rewind-button, &_forward-button, &_repeat-button{
-    display: none !important;
+    display: none;
   }
 }
 
