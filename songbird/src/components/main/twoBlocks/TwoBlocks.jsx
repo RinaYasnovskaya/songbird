@@ -1,5 +1,6 @@
 import React from 'react';
 import { BirdsNameItem } from './BirdsNameItem';
+import { Audio } from '../../audioPlayer/Audio';
 
 export const TwoBlocks = ({ dataBird, selectBirdFunc, selectedBirdId, thisGroup }) => {
   const birdsNames = dataBird.map((item, index) => {
@@ -42,7 +43,7 @@ export const TwoBlocks = ({ dataBird, selectBirdFunc, selectedBirdId, thisGroup 
               alt="bird"
               className="info__img"
             />
-            <div>
+            <div className="info__inner">
               <h3 className="info__name">
                 {selectedBirdId === null ? '***' : dataBird[selectedBirdId].name}
               </h3>
@@ -50,12 +51,7 @@ export const TwoBlocks = ({ dataBird, selectBirdFunc, selectedBirdId, thisGroup 
                 {selectedBirdId === null ? '***' : dataBird[selectedBirdId].species}
               </span>
               <div className="player">
-                <audio
-                  className="player-audio info__audio"
-                  src={selectedBirdId === null ? '***' : dataBird[selectedBirdId].audio}
-                  hidden
-                />
-                <div className="player__control">audio</div>
+                <Audio url={selectedBirdId === null ? '' : dataBird[selectedBirdId].audio} />
               </div>
             </div>
           </div>

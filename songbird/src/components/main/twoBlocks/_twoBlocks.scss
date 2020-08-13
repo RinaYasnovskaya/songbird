@@ -98,6 +98,9 @@
   &__name, &__species, &__description{
     text-align: justify;
   }
+  &__inner{
+    width: 100%;
+  }
 }
 
 @media (max-width: 980px) {
