@@ -6,7 +6,7 @@
   &__info{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
   &__menu{
@@ -45,10 +45,15 @@
 }
 
 .logo{
-
+  background: url('../../assets/img/logo.png') no-repeat;
+  width: 30rem;
+  background-size: contain;
+  height: 6rem;
+  margin-top: 1rem;
 }
 
 .score-block{
+  padding-top: 2rem;
   h4, span{
     font-size: 3rem;
   }

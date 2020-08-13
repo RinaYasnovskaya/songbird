@@ -11,7 +11,7 @@ class App extends Component {
       id: 0,
       selectedItem: null,
       doneRound: false,
-      doneGame: true,
+      doneGame: false,
       countRound: 0,
       birdIndex: 0,
       countAnsw: 0,
@@ -81,12 +81,11 @@ class App extends Component {
     if (!doneRound && !classes.contains('active') && !classes.contains('inactive')) {
       if (id === birdIndex) {
         event.target.classList.add('active');
-        if (countRound !== allRounds) {
-          this.doDoneRound();
-        } else {
-          this.doDoneRound();
+        if (countRound === allRounds) {
           this.doDoneGame(true);
+          this.doDoneRound();
         }
+        this.doDoneRound();
         this.setState((state) => ({
           score: state.score + 5 - countAnsw,
         }));
@@ -102,7 +101,6 @@ class App extends Component {
     this.setState({
       countAnsw: (countAnsw += 1),
     });
-    console.log('count', countAnsw);
   };
 
   render() {
