@@ -22,9 +22,29 @@
 }
 
 .player{
+  width: 45rem;
+}
 
-  &__control{
-
+.rhap{
+  &_time {
+    color: $color-main-text !important;
+    font-size: 1.5rem !important;
+  }
+  &_container{
+    background-color: $color-addit-back !important;
+    box-shadow: 0 0 0 0 !important;
+    &:focus{
+      outline: none;
+    }
+  }
+  &_controls-section{
+    margin-top: 0 !important;
+  }
+  &_progress-container:focus, &_play-pause-button:focus, &_volume-button:focus {
+    outline: none;
+  }
+  &_additional-controls, &_rewind-button, &_forward-button, &_repeat-button{
+    display: none !important;
   }
 }
 
