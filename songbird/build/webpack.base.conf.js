@@ -22,7 +22,6 @@ module.exports = {
   },
   entry: {
     app: PATHS.src,
-    style: './src/assets/scss/main.scss',
     // module: `${PATHS.src}/your-module.js`,
   },
   output: {

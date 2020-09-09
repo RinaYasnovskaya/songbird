@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import { nameGroup, dataBirds } from './js';
 import { Header, Main, Footer, Congratulation } from './components';
+import './assets/scss/main.scss';
 
 class App extends Component {
   constructor() {
@@ -54,22 +55,24 @@ class App extends Component {
     });
   };
 
-  resetScore = () => {
-    this.setState({
-      score: 0,
-    });
-  };
-
   changeId = () => {
     let { id } = this.state;
-    const { doneGame, countRound } = this.state;
+    const { doneGame, countRound, score } = this.state;
     this.setState({
       id: doneGame ? 0 : (id += 1),
       selectedItem: null,
       doneRound: false,
       birdIndex: this.birdRandomId(),
       countAnsw: 0,
+      score: doneGame ? 0 : score,
       countRound: doneGame ? 0 : countRound,
+    });
+  };
+
+  countAnswers = () => {
+    let { countAnsw } = this.state;
+    this.setState({
+      countAnsw: (countAnsw += 1),
     });
   };
 
@@ -80,27 +83,19 @@ class App extends Component {
 
     if (!doneRound && !classes.contains('active') && !classes.contains('inactive')) {
       if (id === birdIndex) {
-        event.target.classList.add('active');
+        classes.add('active');
         if (countRound === allRounds) {
           this.doDoneGame(true);
-          this.doDoneRound();
         }
         this.doDoneRound();
         this.setState((state) => ({
           score: state.score + 5 - countAnsw,
         }));
       } else {
-        event.target.classList.add('inactive');
+        classes.add('inactive');
       }
       this.countAnswers();
     }
-  };
-
-  countAnswers = () => {
-    let { countAnsw } = this.state;
-    this.setState({
-      countAnsw: (countAnsw += 1),
-    });
   };
 
   render() {
@@ -115,11 +110,7 @@ class App extends Component {
       return (
         <div>
           <Header names={nameGroup} num={id} score={score} />
-          <Congratulation
-            score={score}
-            doneGameFunc={this.doDoneGame}
-            resetScore={this.resetScore}
-          />
+          <Congratulation score={score} doneGameFunc={this.doDoneGame} resetScore={this.changeId} />
         </div>
       );
     }

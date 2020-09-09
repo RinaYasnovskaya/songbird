@@ -1,4 +1,5 @@
 import React from 'react';
+import './congratulation.scss';
 
 /* eslint-disable react/jsx-one-expression-per-line */
 

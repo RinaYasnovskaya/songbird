@@ -1,5 +1,6 @@
 import React from 'react';
 import { Audio } from '../../audioPlayer/Audio';
+import './gameBlock.scss';
 
 export const GameBlock = (props) => {
   const {
@@ -8,7 +9,6 @@ export const GameBlock = (props) => {
   } = props;
   const nameBird = done ? name : '*****';
   const imgBird = done ? image : 'assets/img/defaultImg.jpg';
-  console.log(audio);
   return (
     <div className="main">
       <img src={imgBird} alt="random-bird" className="main__img" />

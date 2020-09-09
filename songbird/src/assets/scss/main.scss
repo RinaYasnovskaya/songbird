@@ -2,22 +2,6 @@
 @import './constants/colors';
 @import './constants/basic';
 
-// audio
-@import 'react-h5-audio-player/src/styles.scss';
-
-// header
-@import '../../components/header/header';
-
-// main
-@import '../../components/main/gameBlock/gameBlock';
-@import '../../components/main/twoBlocks/twoBlocks';
-
-// footer
-@import '../../components/footer/footer';
-
-// congratulation
-@import '../../components/congratulation/congratulation';
-
 @font-face {
 	font-family: 'Montserrat';
 	font-style: normal;
