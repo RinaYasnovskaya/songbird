@@ -106,11 +106,12 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: `${PATHS.assets}css/[name].[hash].css`,
     }),
-    new CopyWebpackPlugin([
-      { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
-      { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
-
-    ]),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: `${PATHS.src}/${PATHS.assets}fonts`, to: `${PATHS.assets}fonts` },
+        { from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img` },
+      ]
+    }),
 
 
     ...PAGES.map(page => new HtmlWebpackPlugin({
