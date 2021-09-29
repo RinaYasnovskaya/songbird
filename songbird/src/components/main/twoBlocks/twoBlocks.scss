@@ -1,0 +1,156 @@
+@import '../../../assets/scss/constants/colors.scss';
+
+.game-section{
+  justify-content: space-between;
+
+  &, &__row, &__inner{
+    display: flex;
+    border-radius: .8rem;
+  }
+  &, &__inner{
+    flex-wrap: wrap;
+  }
+  &__row{
+    max-width: 50%;
+    flex: 0 0 49%;
+    background-color: $color-addit-back;
+  }
+  &__inner{
+    width: 100%;
+    padding: 3rem;
+    border: 1px solid $color-border;
+  }
+}
+
+.answers{
+  width: 100%;
+  &__item{
+    border: 0px solid $color-border;
+    border-width: 1px 1px 0 1px;
+    height: 16.7%;
+    &-span{
+      cursor: pointer;
+      padding: 2rem 4rem;
+      display: block;
+    }
+    &:hover{
+      background-color: $color-hover-default;
+    }
+    &:first-child{
+      border-top-left-radius: .8rem;
+      border-top-right-radius: .8rem;
+    }
+    &:last-child{
+      border-bottom-left-radius: .8rem;
+      border-bottom-right-radius: .8rem;
+      border-width: 1px 1px 1px 1px;
+    }
+  }
+}
+
+.indicator{
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  margin-right: 1rem;
+  border-radius: 50%;
+  background-color: $color-hover-default;
+}
+
+.active{
+  & span{
+    background-color: $color-active-correct;
+  }
+}
+.inactive{
+  & span {
+    background-color: $color-incorrect;
+  }
+}
+
+.attention{
+  display: block;
+  text-align: justify;
+  height: 100%;
+  z-index: 1;
+}
+
+.info{
+  display: none;
+  padding: 0;
+  text-align: center;
+  line-height: 1.5;
+  width: 100%;
+  &__img{
+    width: 20rem;
+    height: 15rem;
+    border-radius: 1rem;
+    object-fit: cover;
+    margin-right: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  &__name{
+    font-size: 2rem;
+  }
+  &__species{
+    display: block;
+  }
+  &__description{
+    display: none;
+  }
+  &__name, &__species, &__description{
+    text-align: justify;
+  }
+  &__inner{
+    width: 100%;
+  }
+}
+
+@media (max-width: 980px) {
+  .info{
+    flex-wrap: wrap;
+    &__img{
+      margin: auto;
+    }
+    &__description{
+      font-size: 1.7rem;
+    }
+  }
+  .answers, .attention{
+    font-size: 2.1rem;
+  }
+}
+
+@media (max-width: 780px) {
+  .game-section{
+    display: block;
+    &__row{
+      max-width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+  .info{
+    flex-wrap: nowrap !important;
+    &__img{
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+@media (max-width: 590px) {
+  .info{
+    &__img{
+      margin-right: 2rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .info{
+    flex-wrap: wrap !important;
+    &__img{
+      margin: auto;
+    }
+  }
+}

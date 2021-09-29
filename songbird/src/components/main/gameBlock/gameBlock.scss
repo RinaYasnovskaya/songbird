@@ -1,0 +1,58 @@
+@import '../../../assets/scss/constants/colors.scss';
+
+.main{
+  display: flex;
+  padding: 3rem;
+  margin-bottom: 2rem;
+  border-radius: .8rem;
+  background-color: $color-addit-back;
+  border: 1px solid $color-border;
+
+  &__img{
+    width: 20rem;
+    height: 15rem;
+    border-radius: 1rem;
+  }
+  &__inner{
+    width: 100%;
+    display: flex;
+    margin-left: 5rem;
+    flex-direction: column;
+    &-title{
+      font-size: 3.5rem;
+    }
+  }
+}
+
+.rhap{
+  &_time {
+    color: $color-main-text;
+    font-size: 1.5rem;
+  }
+  &_container{
+    background-color: $color-addit-back;
+    box-shadow: 0 0 0 0;
+    &:focus{
+      outline: none;
+    }
+  }
+  &_controls-section{
+    margin-top: 0;
+  }
+  &_progress-container:focus, &_play-pause-button:focus, &_volume-button:focus {
+    outline: none;
+  }
+  &_additional-controls, &_rewind-button, &_forward-button, &_repeat-button{
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .main{
+    display: block;
+    text-align: center;
+    &__inner{
+      margin-left: 0;
+    }
+  }
+}
